@@ -34,7 +34,11 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		@user.update(username: params[:username], password: params[:password])
+		if 	@user.update(username: params[:username], password: params[:password])
+			redirect_to users_path
+		else
+			render :edit
+		end
 	end
 
 
