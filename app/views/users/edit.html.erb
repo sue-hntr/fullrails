@@ -1,0 +1,16 @@
+<!-- users.edit.html.erb -->
+
+<h3>Edit Your Info</h3>
+<h3><%= @current_user.username %></h3>
+	<form action="update" method="PATCH">
+		<label>Your Name </label>
+
+		<input value="<%= @current_user.username %>" name="user[username]" type="text"></input>
+		<br>
+		<br>
+		<label>Password</label>
+		<input value="<%= @current_user.password %>"name="user[password]" type="password"></input>
+		<br>
+		<br>
+		<input type="submit" value="update"></input>
+	</form>

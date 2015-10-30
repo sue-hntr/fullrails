@@ -1,0 +1,22 @@
+<!-- users.new.html.erb -->
+<h1>New Users Sign Up</h1>
+<% if flash[:notice] %>
+	<div class="flash notice">
+		<span class=alert> 
+				<%= flash[:notice] %> 
+		</span>
+	</div>
+<% end %>
+<br>
+<br>
+   <%= form_for @user do |f| %>
+
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    <br>
+	<br>
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+
+      <%= f.submit "create" %>
+    <% end %>

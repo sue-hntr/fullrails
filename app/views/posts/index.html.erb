@@ -1,0 +1,20 @@
+<!-- posts.index.html.erb -->
+
+<h3>Edit Your Blog</h3>
+<h3><%= @current_user.username %></h3>
+	<form action="edit" method="POST">
+		<label>Blog Title </label>
+
+		<input value="<%= @user.username %>" name="user[username]" type="text"></input>
+		<br>
+		<br>
+		<label>Password</label>
+		<input value="<%= @user.password %>"name="user[password]" type="password"></input>
+		<br>
+		<br>
+		<input type="submit" value="update"></input>
+	</form>
+	<br>
+	<br>
+<%= link_to " BLOG ", new_post_path(@current_user), class: "anything" %>
+
