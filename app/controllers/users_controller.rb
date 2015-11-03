@@ -24,17 +24,19 @@ class UsersController < ApplicationController
 			redirect_to login_path
 		else 	
 			flash[:alert] = "no good"
+			render :new
 		end
 	end
 
 	def edit
 		@user = current_user
 		session[:user_id] = @user.id
-
 	end
 
+
 	def update
-		if 	@user.update(username: params[:username], password: params[:password])
+		# @user = current_user
+		if 	@user.update(user_params)
 			redirect_to users_path
 		else
 			render :edit
@@ -48,11 +50,16 @@ class UsersController < ApplicationController
 	end
 
 
-	def delete
+	def destroy
 		@user = User.find(params[:id])
+		flash[:alert] = "Your account is deleted."
 		@user.destroy
-		redirect_to users_path	
+		session[:user_id] = nil
+		redirect_to root_path
 	end
+
+
+
 
 def some_action   
 	respond_to do |script|

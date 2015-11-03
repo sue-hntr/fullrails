@@ -1,13 +1,11 @@
 <!-- users.new.html.erb -->
-<h1>New Users Sign Up</h1>
-<% if flash[:notice] %>
-	<div class="flash notice">
-		<span class=alert> 
-				<%= flash[:notice] %> 
-		</span>
-	</div>
-<% end %>
+<h1>Sue's Blog</h1>
+<h3>Sign Up or Log In? Current Accounts <%= link_to "Log In", login_path %>
+</h3>
 <br>
+<br>
+<br>
+<h3>New Users Sign Up Here</h3>
 <br>
    <%= form_for @user do |f| %>
 

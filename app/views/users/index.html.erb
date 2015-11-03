@@ -2,12 +2,15 @@
 
 	<h3>welcome back</h3>
 	<h3><%= "Name:   #{@current_user.username}" %></h3>
+	<br>
+	<br>
 	<h3><%= "Account created: #{@current_user.created_at}" %></h3>
 <br>
 <br>
 <br>
 
 
-<%= link_to "EDIT ", edit_user_path(@current_user.id), class: "anything" %>
-<%= link_to " BLOG ", new_post_path(@current_user.id), class: "anything" %>
+<%= link_to "EDIT your account ", edit_user_path(@current_user.id) %>
+<%= link_to "Log Out", logout_path, method: :delete %>
+<%= link_to "BLOG", new_post_path(@current_user.id) %>
 

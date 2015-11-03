@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-
+get 'recent' => 'posts#list_10', as: :recent_posts
   # Example resource route with sub-resources:
 
      get  'login' => 'sessions#new'

@@ -7,12 +7,7 @@ class PostsController < ApplicationController
 		end
 	end
 
-#This should be INDEX 
-	def index
-		@user = User.find_by_id(session[:user_id])
-		@post = @user.posts.last
-		@posts = @user.posts.all()
-	end
+
 
 	def new
 		@user = current_user.username
@@ -25,12 +20,28 @@ class PostsController < ApplicationController
 		@post = Post.create(post_params)
 		flash[:notice] = "Your post is saved."
 		@user.posts << @post
-		redirect_to posts_path
+		redirect_to post_path
 	end
 
-	def list_10
-		@listposts = Post.order(id: :desc).limit(10)
+#This should be SHOW 
+	def index
+		@user = User.find_by_id(session[:user_id])
+		@post = @user.posts.last
+		@posts = @user.posts.all()
 	end
+
+
+
+
+
+#This should be INDEX
+	def show
+		p = Post.last.id
+		@v = Post.last.id - 10
+		@listpost = Post.find.(@v)
+		@posts = Posts.all()
+	end
+
 
 
 		private

@@ -1,0 +1,18 @@
+<!-- post.show.html.erb (last 10 posts) -->
+
+<h1> Latest 10 Blog Posts </h1>
+<table border="1" style="width:100%">
+   <tr>
+    <td><h3>Title</h3></td>
+    <td><h3>Body</h3></td>
+  </tr>
+<% @listpost.each do |w| %>
+<tr>
+	<td><%= w.title %></td>   
+	<td><%= w.body %></td>
+</tr>
+<% @v = @v+1 %>
+<%end%>
+</table>
+
+

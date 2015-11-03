@@ -1,20 +1,27 @@
 <!-- posts.index.html.erb -->
 
-<h3>Edit Your Blog</h3>
-<h3><%= @current_user.username %></h3>
-	<form action="edit" method="POST">
-		<label>Blog Title </label>
+<h1>Your Latest Blog, <%= @user.username %></h1>
+<h3><%= "Title:   #{@post.title}" %></h3>
+<h3><%= "Body:   #{@post.body}" %></h3>
+<br>
+<br>
+<h1>A list of your blogs</h1>
+<table border="1" style="width:100%">
+   <tr>
+    <td><h3>Title</h3></td>
+    <td><h3>Body</h3></td>
+  </tr>
+<% @posts.each do |w| %>
+  <tr>
+    <td><%= w.title %></td>   
+    <td><%= w.body %></td>
+  </tr>
+ <%end%>
+</table>
+<br>
+<br>
+<br>
+<%= link_to "Show Last 10 User Posts", recent_posts_path %> 
 
-		<input value="<%= @user.username %>" name="user[username]" type="text"></input>
-		<br>
-		<br>
-		<label>Password</label>
-		<input value="<%= @user.password %>"name="user[password]" type="password"></input>
-		<br>
-		<br>
-		<input type="submit" value="update"></input>
-	</form>
-	<br>
-	<br>
-<%= link_to " BLOG ", new_post_path(@current_user), class: "anything" %>
-
+<%= link_to "Log OUT ", logout_path, method: :delete %>
+<%= link_to "BLOG", new_post_path(@user.id) %>
