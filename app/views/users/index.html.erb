@@ -8,9 +8,8 @@
 <br>
 <br>
 <br>
-
-
 <%= link_to "EDIT your account ", edit_user_path(@current_user.id) %>
 <%= link_to "Log Out", logout_path, method: :delete %>
-<%= link_to "BLOG", new_post_path(@current_user.id) %>
-
+<br>
+<%= link_to "BLOG", new_user_post_path(@current_user.id) %>
+<br>

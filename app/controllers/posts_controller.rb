@@ -1,15 +1,9 @@
 class PostsController < ApplicationController
 
-	def current_user
-		if session[:user_id]
-			@current_user = User.find(session[:user_id])
-		end
-	end
-
 	def index
 		@user = User.find_by_id(session[:user_id])
 		@post = @user.posts.last
-		@posts = @user.posts.all()
+		@posts = @user.posts
 	end
 
 	def new
@@ -23,10 +17,11 @@ class PostsController < ApplicationController
 		@post = Post.create(post_params)
 		flash[:notice] = "Your post is saved."
 		@user.posts << @post
-		redirect_to posts_path
+		redirect_to user_posts_path(@user)
 	end
 
 	def list_10
+		current_user
 		@listposts = Post.order(id: :desc).limit(10)
 		@user = User.find_by_id(session[:user_id])
 	end
@@ -40,3 +35,4 @@ class PostsController < ApplicationController
 		params.require(:user).permit(:username, :password)
 	end
 end
+ 

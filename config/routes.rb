@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-      root 'users#new'
+  root 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -27,15 +27,20 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-get 'recent' => 'posts#list_10', as: :recent_posts
+  get 'recent' => 'posts#list_10', as: :recent_posts
+  get 'comment_on' => 'comments#on_post', as: :comment_on_comments 
+
   # Example resource route with sub-resources:
 
-     get  'login' => 'sessions#new'
-     post   'login' => 'sessions#create'
-     delete 'logout' => 'sessions#destroy'
+  get  'login' => 'sessions#new'
+  post   'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
 
-     resources :users, :posts, :comments
-
+  resources :users do
+    resources :posts do
+      resources :comments
+    end
+  end
 
   #     resources :comments, :sales
   #     resource :seller

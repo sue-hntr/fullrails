@@ -1,20 +1,28 @@
-comments.index.html.erb
+<!-- comments.index.html.erb -->
 
-<h1> Choose Comment on a Post</h1>
+<h1> Posts with Comments on Them</h1>
 <table border="1" style="width:100%">
    <tr>
-    <td><h3>Select One</h3></td>    
-   	<td><h3>Writer</h3></td>
-    <td><h3>Title</h3></td>
-    <td><h3>Body</h3></td>
+   	<td><h3>Title</h3></td>
+    <td><h3>Comment</h3></td>
   </tr>
-<% @listposts.each do |w| %>
+<% @commentlist.each do |w| %>
 <tr>
-	<td><%= w.user.username %></td>
-	<td><%= w.title %></td>   
-	<td><%= w.body %></td>
+	<td>
+		<%= @post.title %>
+	</td>
+	<td>
+		<%= w.comment %>
+	</td>
 </tr>
 <%end%>
 </table>
+<br>
+<br>
+<%= link_to "Log Out", logout_path, method: :delete %>
+<br>
+<br>
+<%= link_to "BLOG", new_user_post_path(@current_user.id) %>
+<br>
 
 

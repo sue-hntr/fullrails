@@ -1,5 +1,5 @@
 <!-- posts.index.html.erb -->
-
+<br>
 <h1>Your Latest Blog, <%= @user.username %></h1>
 <h3><%= "Title:   #{@post.title}" %></h3>
 <h3><%= "Body:   #{@post.body}" %></h3>
@@ -22,6 +22,10 @@
 <br>
 <br>
 <%= link_to "Show Last 10 User Posts", recent_posts_path %> 
-
+<br>
 <%= link_to "Log OUT ", logout_path, method: :delete %>
-<%= link_to "BLOG", new_post_path(@user.id) %>
+<br>
+<%= link_to "BLOG", new_user_post_path(@user.id) %>
+<br>
+<%= link_to "Comment on Blogs", comment_on_comments_path %>
+ 

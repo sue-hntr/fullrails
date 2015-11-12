@@ -1,5 +1,5 @@
 <!-- list_10.html.erb (last 10 posts) -->
-
+<br>
 <h1> Latest 10 Blog Posts </h1>
 <table border="1" style="width:100%">
    <tr>    
@@ -19,5 +19,8 @@
 <br>
 <br>
 <%= link_to "Log OUT ", logout_path, method: :delete %>
-<%= link_to "BLOG", new_post_path %>
+<br>
+<%= link_to "BLOG", new_user_post_path(@current_user) %>
+<br>
+<%= link_to "Comment on Blogs", comment_on_comments_path %>
 

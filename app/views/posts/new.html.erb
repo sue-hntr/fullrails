@@ -1,7 +1,7 @@
 <!-- posts.new.html.erb -->
 
 <h3>Post Your Blog, <%= @user %></h3>
-   <%= form_for @post do |f| %>
+   <%= form_for @post, url: user_posts_path do |f| %>
 
       <%= f.label :title %>
       <%= f.text_field :title %>
@@ -19,3 +19,7 @@
 <br>
 <br>
 <%= link_to "Show Last 10 User Posts", recent_posts_path %> 
+<br>
+<br>
+<%= link_to "Comment on Blogs", comment_on_comments_path %>
+

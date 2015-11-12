@@ -1,0 +1,22 @@
+<!-- comments.comment_on.html.erb -->
+
+<h1> Choose a Title to Comment on a Post</h1>
+<table border="1" style="width:100%">
+   <tr>
+   	<td><h3>Title</h3></td>
+    <td><h3>Body</h3></td>
+  </tr>
+<% @posts.each do |w| %>
+<tr>
+	<td>
+		<%= link_to w.title, new_user_post_comment_path(@user.id, w.id) %>
+	</td>
+	<td>
+		<%= w.body %>
+	</td>
+</tr>
+<%end%>
+</table>
+<%= link_to "Log Out", logout_path, method: :delete %>
+
+
