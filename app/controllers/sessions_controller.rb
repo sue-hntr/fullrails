@@ -19,12 +19,6 @@ def create
 	username = user_info[:username]
 	pass = user_info[:password]
 	@user = User.where(username: username).first
-	# puts "XXXXXXXXXXXXXXXXXXXXXX"
-	# puts @user.password
-	# puts "YYYYYYYYYYYYYYYYYYYYYY"
-	# puts user_info
-	# puts "ZZZZZZZZZZZZZZZZZZZZZZZ"
-	# puts username
 	if @user == nil
 		flash[:alert] = "Not on list. Please sign up."
 		redirect_to new_user_path

@@ -1,13 +1,6 @@
 <!-- sessions.new.html.erb -->
 
 <h1>Log in</h1>
-<% if flash[:notice] %>
-  <div class="flash notice">
-    <span class=alert> 
-        <%= flash[:alert] %> 
-    </span>
-  </div>
-<% end %>
 <br>
 <br>
    <%= form_for @user , url: {action: :create} do |f| %>
@@ -21,15 +14,3 @@
 
       <%= f.submit "login" %>
  <% end %>
-
-
-
-
-
-
-
-
-
-
-
-

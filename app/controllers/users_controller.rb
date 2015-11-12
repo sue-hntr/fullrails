@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
 	def index
 		 @current_user = User.find(session[:user_id])
-
 	end
 
 	def new
@@ -59,13 +58,6 @@ class UsersController < ApplicationController
 	end
 
 
-
-
-def some_action   
-	respond_to do |script|
-	     script.js
-	 end 
-	end
 
 	private
 	def user_params

@@ -34,7 +34,7 @@ get 'recent' => 'posts#list_10', as: :recent_posts
      post   'login' => 'sessions#create'
      delete 'logout' => 'sessions#destroy'
 
-     resources :users, :posts
+     resources :users, :posts, :comments
 
 
   #     resources :comments, :sales

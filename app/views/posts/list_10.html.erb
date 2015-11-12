@@ -2,12 +2,14 @@
 
 <h1> Latest 10 Blog Posts </h1>
 <table border="1" style="width:100%">
-   <tr>
+   <tr>    
+   	<td><h3>Writer</h3></td>
     <td><h3>Title</h3></td>
     <td><h3>Body</h3></td>
   </tr>
 <% @listposts.each do |w| %>
 <tr>
+	<td><%= w.user.username %></td>
 	<td><%= w.title %></td>   
 	<td><%= w.body %></td>
 </tr>
@@ -18,5 +20,4 @@
 <br>
 <%= link_to "Log OUT ", logout_path, method: :delete %>
 <%= link_to "BLOG", new_post_path %>
-
 
